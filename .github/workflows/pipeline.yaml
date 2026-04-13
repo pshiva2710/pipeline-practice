@@ -1,0 +1,34 @@
+name: PowerBI Pipeline Practice
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Build
+        run: echo "Starting pipeline..."
+
+      - name: Simulate file check
+        run: echo "Found SalesReport.pbix"
+
+  Deploy_DEV:
+    runs-on: ubuntu-latest
+    needs: Build
+    steps:
+      - name: Connect to PowerBI
+        run: echo "Connecting to Power BI Service..."
+
+      - name: Deploy to DEV
+        run: echo "Deploying to DEV workspace"
+
+  Deploy_PROD:
+    runs-on: ubuntu-latest
+    needs: Deploy_DEV
+    steps:
+      - name: Deploy to PROD
+        run: echo "Deploying to PROD workspace"
