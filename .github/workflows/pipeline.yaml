@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  env:
+   TENANT_ID: "my-tenant-123
+   DEV_WORKSPACE: "DEV-Workspace"
+   PROD_WORKSPACE: "PROD-Workspace"
+   REPORT_NAME: "SalesReport.pbix"
 
 jobs:
 
